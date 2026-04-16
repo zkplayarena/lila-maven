@@ -1,0 +1,78 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "org.playstrategy",
+    "module": "fairystockfish",
+    "version": "0.0.16",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.2"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.bytedeco",
+          "module": "javacpp",
+          "version": {
+            "requires": "1.5.8"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "fairystockfish-0.0.16.jar",
+          "url": "fairystockfish-0.0.16.jar",
+          "size": 20078,
+          "sha512": "8bd34fceb36d364c3231cd7808a6ddda10b14614397c7770e5cd719d40f37111bdce1ab1d1166a8b46b01aee5d8ed39db4dc5513d5d880c07f8c1f2679203804",
+          "sha256": "3033ef4c07d19d9ccb2afd4e51e71fbc313601e0bfe2724bf7d14ddf62081c40",
+          "sha1": "6ffb2155b4589efb3b16092c24532ba0e0c4fdfe",
+          "md5": "896d24604a4c5ab30ba98897badc2160"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "org.bytedeco",
+          "module": "javacpp",
+          "version": {
+            "requires": "1.5.8"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "fairystockfish-0.0.16.jar",
+          "url": "fairystockfish-0.0.16.jar",
+          "size": 20078,
+          "sha512": "8bd34fceb36d364c3231cd7808a6ddda10b14614397c7770e5cd719d40f37111bdce1ab1d1166a8b46b01aee5d8ed39db4dc5513d5d880c07f8c1f2679203804",
+          "sha256": "3033ef4c07d19d9ccb2afd4e51e71fbc313601e0bfe2724bf7d14ddf62081c40",
+          "sha1": "6ffb2155b4589efb3b16092c24532ba0e0c4fdfe",
+          "md5": "896d24604a4c5ab30ba98897badc2160"
+        }
+      ]
+    }
+  ]
+}

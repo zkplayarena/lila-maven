@@ -1,0 +1,113 @@
+#!/bin/sh
+
+target=$1
+
+export JAVA_OPTS=""
+export SBT_OPTS="-Xms1024M -Xmx1024M"
+
+repo_dir=$(pwd)
+echo "Updating $repo_dir"
+
+build_dir=$(mktemp -d)
+echo "Building in $build_dir"
+cd "$build_dir"
+
+java8() {
+  export PATH="/usr/lib/jvm/java-8-openjdk/jre/bin/:$PATH"
+  java -version
+}
+java11() {
+  export PATH="/usr/lib/jvm/java-11-openjdk/bin/:$PATH"
+  java -version
+}
+java14() {
+  export PATH="/usr/lib/jvm/java-14-openjdk/bin/:$PATH"
+  java -version
+}
+
+if [ -z $target ] || [ $target = "scalachess" ]; then
+  git clone --depth 1 https://github.com/ornicar/scalachess
+  cd scalachess
+  sbt -DpublishTo=$repo_dir +publish
+  cd ..
+fi
+
+if [ -z $target ] || [ $target = "scalachess9" ]; then
+  git clone --depth 1 https://github.com/ornicar/scalachess --branch v9
+  cd scalachess
+  sbt -DpublishTo=$repo_dir +publish
+  cd ..
+fi
+
+if [ -z $target ] || [ $target = "scalalib" ]; then
+  git clone --depth 1 https://github.com/ornicar/scalalib
+  cd scalalib
+  sbt -DpublishTo=$repo_dir +publish
+  cd ..
+fi
+
+if [ -z $target ] || [ $target = "kamon-influxdb" ]; then
+  git clone --depth 1 https://github.com/ornicar/Kamon-influxdb --branch lila
+  cd Kamon-influxdb
+  sbt -DpublishTo=$repo_dir publish
+  cd ..
+fi
+
+if [ -z $target ] || [ $target = "geoip" ]; then
+  git clone --depth 1 https://github.com/ornicar/maxmind-geoip2-scala --branch customBuild
+  cd maxmind-geoip2-scala
+  sbt -DpublishTo=$repo_dir publish
+  cd ..
+fi
+
+if [ -z $target ] || [ $target = "prismic" ]; then
+  git clone https://github.com/ornicar/scala-kit --branch lichess-fork-213
+  cd scala-kit
+  sbt -DpublishTo=$repo_dir publish
+  cd ..
+fi
+
+if [ -z $target ] || [ $target = "compression" ]; then
+  git clone --depth 1 https://github.com/lichess-org/compression
+  cd compression
+  sbt -DpublishTo=$repo_dir publish
+  cd ..
+fi
+
+if [ -z $target ] || [ $target = "scrimage" ]; then
+  java8
+  git clone ~/scrimage --branch release/2.1.x
+  cd scrimage
+  sbt -DpublishTo=$repo_dir publish
+  cd ..
+fi
+
+if [ -z $target ] || [ $target = "hasher" ]; then
+  java8
+  git clone --depth 1 https://github.com/ornicar/Hasher --branch lila
+  cd Hasher
+  sbt -DpublishTo=$repo_dir +publish
+  cd ..
+fi
+
+if [ -z $target ] || [ $target = "play-autoconfig" ]; then
+  java13
+  git clone --depth 1 https://github.com/ornicar/play-autoconfig --branch lila
+  cd play-autoconfig
+  sbt -DpublishTo=$repo_dir publish
+  cd ..
+fi
+
+if [ -z $target ] || [ $target = "playframework" ]; then
+  version=2.8.7-lila_1.6
+  git clone --depth 1 https://github.com/ornicar/playframework-lila
+  cd playframework-lila
+  sbt 'publishLocal;publish'
+  cp -r ~/.ivy2/local/com.typesafe.play/sbt-plugin $repo_dir/com.typesafe.play/
+  cp -r ~/.ivy2/local/com.typesafe.play/play-exceptions $repo_dir/com.typesafe.play/
+  cp -r ~/.ivy2/local/com.typesafe.play/sbt-routes-compiler_2.12 $repo_dir/com.typesafe.play/
+  cp -r target/sonatype-staging/$version/* $repo_dir/
+  cd ..
+fi
+
+rm -rf "$build_dir"

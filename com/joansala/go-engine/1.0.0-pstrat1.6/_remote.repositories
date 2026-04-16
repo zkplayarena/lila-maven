@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue Aug 15 18:14:52 BST 2023
+go-engine-1.0.0-pstrat1.6.jar>=
+go-engine-1.0.0-pstrat1.6.pom>=
+go-engine-1.0.0-pstrat1.6-jar-with-dependencies.jar>=
