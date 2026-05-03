@@ -12,7 +12,7 @@
   <version>0.0.5</version>
   <name>Fairy Stockfish for Java/Scala</name>
   <description>A simple wrapper for fairystockfish/scala</description>
-  <url>https://github.com/Mind-Sports-Games/Fairy-Stockfish-Java</url>
+  <url>https://github.com/zkplayarena/Fairy-Stockfish-Java</url>
   <licenses>
     <license>
       <name>GNU General Public License v3.0</name>
@@ -28,9 +28,9 @@
     </developer>
   </developers>
   <scm>
-    <connection>scm:git:git://github.com/Mind-Sports-Games/Fairy-Stockfish.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com/Mind-Sports-Games/Fairy-Stockfish-Java.git</developerConnection>
-    <url>https://github.com/Mind-Sports-Games/Fairy-Stockfish-Java</url>
+    <connection>scm:git:git://github.com/zkplayarena/Fairy-Stockfish.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/zkplayarena/Fairy-Stockfish-Java.git</developerConnection>
+    <url>https://github.com/zkplayarena/Fairy-Stockfish-Java</url>
   </scm>
   <dependencies>
     <dependency>

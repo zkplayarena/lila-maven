@@ -69,7 +69,7 @@
         <repository>
             <id>lila-maven</id>
             <name>lila-maven</name>
-            <url>https://raw.githubusercontent.com/Mind-Sports-Games/lila-maven/master/</url>
+            <url>https://raw.githubusercontent.com/zkplayarena/lila-maven/master/</url>
             <layout>default</layout>
         </repository>
     </repositories>
